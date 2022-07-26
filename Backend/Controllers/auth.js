@@ -5,7 +5,7 @@ const expressJWT = require("express-jwt");
 const { errorHandler } = require("../helper/errorHandler");
 
 const createToken = (_id) => {
-    return jwt.sign({_id}, process.env.JWT_SECRET, { expiresIn: '6h' })
+    return jwt.sign({_id}, process.env.JWT_SECRET)
   }
 
 exports.signUp = async (req, res) => {
@@ -28,6 +28,8 @@ exports.signIn = async (req, res) => {
     const user = await User.signin(req.body);
     // create a token
     const token = createToken(user._id);
+    //set cookie for session
+    res.cookie("t",token,{expire:new Date+9999});
     //destructure user
     const {_id,name,email,role}=user;
     res.status(200).json({ token ,user:{_id,name,email,role}});
@@ -35,3 +37,14 @@ exports.signIn = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+
+exports.signOut=async (req,res)=>{
+    res.clearCookie("t");
+    res.json({message:"Signout Successful"})
+}
+
+exports.requireSignin=expressJWT({
+secret:process.env.JWT_SECRET,
+algorithms: ["HS256"],
+userProperty:"auth"
+})

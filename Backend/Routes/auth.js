@@ -1,5 +1,5 @@
 const express=require('express');
-const {signUp,signIn,signOut} =require('../Controllers/user');
+const {signUp,signIn,signOut,requireSignin} =require('../Controllers/auth');
 const {userSignupValidation}=require('../validator/index');
 const router=express.Router();
 
@@ -11,5 +11,10 @@ router.post('/signin',signIn)
 
 //sign out route
 router.get('/signout',signOut);
+
+//test route
+router.get('/test',requireSignin,(req,res)=>{
+    res.send("Hellow Hellow testing");
+});
 
 module.exports=router;
