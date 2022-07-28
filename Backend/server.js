@@ -8,19 +8,22 @@ const bodyParser=require('body-parser');
 
 //import routes
 const authRoutes=require('./Routes/auth')
+const userRoutes=require('./Routes/user')
 //variable
 const port=process.env.PORT||3001;
 const db=process.env.MONGO_URI;
 //Express App
 const app=express();
 //Middle ware
-app.use(morgan('dev'));
+app.use(morgan('dev')); 
 app.use(cookieParser());
 app.use(bodyParser.json());
 
 
 //Routes Middelware
+app.use('/api',userRoutes)
 app.use('/api',authRoutes) 
+
 //Database 
 mongoose.connect(db,{
    // useNewUrlParser:true,
