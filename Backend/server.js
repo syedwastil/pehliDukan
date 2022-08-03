@@ -9,6 +9,8 @@ const bodyParser=require('body-parser');
 //import routes
 const authRoutes=require('./Routes/auth')
 const userRoutes=require('./Routes/user')
+const categoryRoutes=require('./Routes/category')
+const productRoutes=require('./Routes/product')
 //variable
 const port=process.env.PORT||3001;
 const db=process.env.MONGO_URI;
@@ -23,6 +25,8 @@ app.use(bodyParser.json());
 //Routes Middelware
 app.use('/api',userRoutes)
 app.use('/api',authRoutes) 
+app.use('/api',categoryRoutes)
+app.use('/api',productRoutes)
 
 //Database 
 mongoose.connect(db,{

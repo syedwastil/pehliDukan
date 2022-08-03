@@ -50,16 +50,18 @@ userProperty:"auth"
 })
 
 exports.isAuth=(req,res,next)=>{
-  user=req.profile && req.auth && req.profile._id===req.auth._id;
+  user=req.profile && req.auth && req.profile._id==req.auth._id;
+  console.log(req.profile._id,"---",req.auth._id)
   if(!user){
     return res.status(403).json({err:"Access Denied"})
-  }
+  } 
+  console.log("User Authenticated")
   next();
 }
-
 exports.isAdmin=(req,res,next)=>{
   if(req.profile.role===0){
     return res.status(403).json({err:"Admin Resource! Access denied"})
   }
+  console.log("User is Admin")
   next(); 
 }
