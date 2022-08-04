@@ -101,7 +101,7 @@ exports.deleteProduct=async (req,res)=>{
 
 
 exports.productById=async (req,res,next,id)=>{
-    console.log(id)
+   // console.log(id)
     Product.findById(id)
         .then((product)=>{
             //console.log(product)

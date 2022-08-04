@@ -3,6 +3,7 @@ require('dotenv').config();
 const express=require('express');
 const morgan=require('morgan');
 const mongoose=require('mongoose');
+const cors=require('cors')
 const cookieParser=require('cookie-parser');
 const bodyParser=require('body-parser');
 
@@ -18,6 +19,7 @@ const db=process.env.MONGO_URI;
 const app=express();
 //Middle ware
 app.use(morgan('dev')); 
+app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.json());
 
