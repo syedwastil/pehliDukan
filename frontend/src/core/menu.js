@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link, } from 'react-router-dom'
 const isActive=(history,path)=>{
-    console.log(history,"....",path)
+   // console.log(history,"....",path)
     // if(history.location.pathname===path){
         
     //     return {color:"#ff99ff"}
