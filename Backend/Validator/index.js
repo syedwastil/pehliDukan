@@ -3,19 +3,21 @@ const {check,validationResult}=require('express-validator')
 exports.userSignupValidation=async (req,res,next)=>{
     await check('name')
         .notEmpty()
-        .withMessage('Name is required')
+        .withMessage('Name is required.')
         .run(req)
-
-    await check('password')
-        .isLength({min:6})
-        .withMessage('Password must be minimum 6 chars')
-        .matches(/\d/)
-        .withMessage('must contain a number')
-        .run(req);
 
     await check('email')
         .isEmail()
-        .withMessage("Email is not valid")
+        .withMessage("Email is not valid.")
+        .run(req);
+
+    await check('password')
+        .notEmpty()
+        .withMessage('Password is required.')
+        .isLength({min:6})
+        .withMessage('Password must be minimum 6 chars.')
+        .matches(/\d/)
+        .withMessage('Password must contain a number.')
         .run(req);
 
     const result=validationResult(req);
@@ -26,4 +28,4 @@ exports.userSignupValidation=async (req,res,next)=>{
         return res.status(402).json({error:firstError})
     }
     next();
-}
+} 
