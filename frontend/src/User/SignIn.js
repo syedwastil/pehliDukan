@@ -1,18 +1,19 @@
 import React, { useState } from "react";
+import {Navigate} from "react-router-dom"
 import Layout from "../core/Layout";
-import { signupin } from "../auth/index";
+import { signupin,authenticate } from "../auth/index";
 
 function Signin() {
   const [values, setvalues] = useState({
-    name: "",
-    email: "",
-    password: "",
+    email: "t@t.pk",
+    password: "test@123",
     error: "",
-    success: false,
+   loading: false,
+   redirectToReferrer:false,
   });
 
   //Extract values to be passed
-  const { name, email, password,error,success } = values;
+  const { name, email, password,error,loading,redirectToReferrer } = values;
 
   //update values in syaye as soon the data is changed in input
   const handleChange = (name) => (e) => {
@@ -21,17 +22,18 @@ function Signin() {
   //Ckick Submit will be called for sendindg data to backend
   const clickSubmit = (e) => {
     e.preventDefault();
-    signupin({ email: email, password: password },'signin').then((data) => {
+    setvalues({ ...values, loading: true });
+    signupin({ email: email, password: password },'signin')
+    .then((data) => {
       if (data.error) {
-        setvalues({ ...values, error: data.error, success: false });
+        setvalues({ ...values, error: data.error, loading: false });
       } else {
+       authenticate(data,()=>{
         setvalues({
-          name: "",
-          email: "",
-          password: "",
-          error: "",
-          success: true,
+          ...values,
+          redirectToReferrer:true,
         });
+       })
       }
     });
   };
@@ -54,7 +56,7 @@ function Signin() {
       <div className="form-group">
         <label className="text-muted">Password</label>
         <input
-          onChange={handleChange("password")}
+          onChange={handleChange("password")} 
           type="password"
           className="form-control"
           value={password}
@@ -71,18 +73,29 @@ function Signin() {
       className="alert alert-danger"
       style={{ display: error ? "" : "none" }}
     >
-      {error[0]}
+      {error}
     </div>
   );
 
-  const showSuccess = () => (
+  const showLoading = () => (
     <div
       className="alert alert-info"
-      style={{ display: success ? "" : "none" }}
+      style={{ display: loading ? "" : "none" }}
     >
-      New account is created successfully. Please signin.
+      <h2>Loading...</h2>
     </div>
   );
+
+  const redirectUser=()=>{
+    if(redirectToReferrer){
+      return (
+
+        <Navigate  to="/"/>
+
+      )
+    }
+
+  }
 
   return (
     <>
@@ -91,9 +104,10 @@ function Signin() {
         description="Welcome to Pehli Dukan"
         className="Container col-md-6 offset-md-3 "
       >
-        {showSuccess()}
+        {showLoading()}
         {showError()}
         {signInForm()}
+        {redirectUser()}
       </Layout>
     </>
   );

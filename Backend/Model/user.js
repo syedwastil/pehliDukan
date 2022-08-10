@@ -43,22 +43,11 @@ userSchema.statics.signup=async function({name,email,password}){
     console.log("user created")
     return user;
 }
-userSchema.statics.signin=async function({email,password}){
-    if (!email || !password) {
-        res.status(405).json({err:'All fields must be filled'})
-      }
-    const user=await this.findOne({email})
-        if(!user){
-            res.status(400).json({err:"User not exist. Please Signup"})
-        }
-        console.log("user Found");
+userSchema.statics.signin=async function(user,password){
+    console.log(user.hashed_password,password)
     const match = await bcrypt.compare(password, user.hashed_password)
-        if (!match) {
-            res.status(400).json({err:"Incorrect password"})
-        }
-        console.log("Matched")
-        return user;
-    
+    console.log(match)
+    return(match)
 }
 
 module.exports=mongoose.model('User',userSchema)
