@@ -30,6 +30,8 @@ exports.errorHandler = error => {
     if (error.code) {
         switch (error.code) {
             case 11000:
+                message = "Duplicate Error";
+                break;
             case 11001:
                 message = uniqueMessage(error);
                 break;

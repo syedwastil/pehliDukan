@@ -15,7 +15,7 @@ exports.create=(req,res)=>{
     form.parse(req,(err,fields,files)=>{
         if(err){
             res.status(400).json({
-                err:"Image could not be uploaded"
+                error:"Image could not be uploaded"
             })
         }
 

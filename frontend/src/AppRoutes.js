@@ -7,6 +7,7 @@ import PrivateRoute from "./auth/PrivateRoute"
 import UserDashboard from "./User/UserDashboard"
 import AdminRoute from "./auth/AdminRoute"
 import AdminDashboard from "./User/AdminDashboard"
+import AddCategory from "./admin/AddCategory"
 
 function AppRoutes() {
   return (
@@ -20,6 +21,7 @@ function AppRoutes() {
             </Route>
             <Route element={<AdminRoute/>}>
               <Route path="/admin/dashboard" element={<AdminDashboard/>}/>
+              <Route path="/create/category" element={<AddCategory/>}/>
             </Route>
         </Routes>
 
