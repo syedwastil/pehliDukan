@@ -14,7 +14,7 @@ function AppRoutes() {
             <Route path="/signin" element={<Signin/>}/>
             <Route path="/signup"  element={<Signup/>}/>
             <Route element={<PrivateRoute/>}>
-              <Route path="/dashboard" element={<UserDashboard/>}/>
+              <Route path="/user/dashboard" element={<UserDashboard/>}/>
             </Route>
         </Routes>
 

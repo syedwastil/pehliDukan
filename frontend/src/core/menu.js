@@ -37,7 +37,7 @@ function Menu({ history }) {
               </Link>
             </li>
             <li className="nav-item active">
-              <Link className="nav-link" to="/dashboard">
+              <Link className="nav-link" to="/user/dashboard">
                 Dashboard
               </Link>
             </li>

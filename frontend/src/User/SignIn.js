@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {Navigate} from "react-router-dom"
 import Layout from "../core/Layout";
-import { signupin,authenticate } from "../auth/index";
+import { signupin,authenticate, isAuthenticated } from "../auth/index";
 
 function Signin() {
   const [values, setvalues] = useState({
@@ -14,7 +14,7 @@ function Signin() {
 
   //Extract values to be passed
   const { name, email, password,error,loading,redirectToReferrer } = values;
-
+  const {user}=isAuthenticated();
   //update values in syaye as soon the data is changed in input
   const handleChange = (name) => (e) => {
     setvalues({ ...values, error: false, [name]: e.target.value });
@@ -88,11 +88,12 @@ function Signin() {
 
   const redirectUser=()=>{
     if(redirectToReferrer){
-      return (
-
-        <Navigate  to="/"/>
-
-      )
+      if(user && user.role===1){
+        return(<Navigate to="/admin/dashboard" />)
+      }else{
+        return (<Navigate  to="/"/>)
+      }
+      
     }
 
   }
