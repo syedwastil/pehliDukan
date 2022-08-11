@@ -37,9 +37,16 @@ function Menu({ history }) {
               </Link>
             </li>
             <li className="nav-item active">
+            {isAuthenticated() && isAuthenticated().user.role===1 &&(
+              <Link className="nav-link" to="/admin/dashboard">
+                Dashboard
+              </Link>
+            )}
+            {isAuthenticated() && isAuthenticated().user.role===0 &&(
               <Link className="nav-link" to="/user/dashboard">
                 Dashboard
               </Link>
+            )}
             </li>
             <li className="nav-item">
               <span

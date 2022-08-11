@@ -5,6 +5,8 @@ import Signup from "./User/Signup"
 import Signin from "./User/Signin"
 import PrivateRoute from "./auth/PrivateRoute"
 import UserDashboard from "./User/UserDashboard"
+import AdminRoute from "./auth/AdminRoute"
+import AdminDashboard from "./User/AdminDashboard"
 
 function AppRoutes() {
   return (
@@ -15,6 +17,9 @@ function AppRoutes() {
             <Route path="/signup"  element={<Signup/>}/>
             <Route element={<PrivateRoute/>}>
               <Route path="/user/dashboard" element={<UserDashboard/>}/>
+            </Route>
+            <Route element={<AdminRoute/>}>
+              <Route path="/admin/dashboard" element={<AdminDashboard/>}/>
             </Route>
         </Routes>
 
