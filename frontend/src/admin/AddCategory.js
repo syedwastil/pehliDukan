@@ -53,16 +53,16 @@ function AddCategory() {
         >
           {error}
         </div>
-      );
+    );
     
-      const showSuccess = () => (
+    const showSuccess = () => (
         <div
-          className="alert alert-info"
-          style={{ display: success ? "" : "none" }}
+            className="alert alert-info"
+            style={{ display: success ? "" : "none" }}
         >
-          {name} is created successfully.
+            {name} is created successfully.
         </div>
-      );
+    );
 
 const goBack=()=>(
     <div className="md-5">

@@ -8,6 +8,7 @@ import UserDashboard from "./User/UserDashboard"
 import AdminRoute from "./auth/AdminRoute"
 import AdminDashboard from "./User/AdminDashboard"
 import AddCategory from "./admin/AddCategory"
+import AddProduct from "./admin/AddProduct"
 
 function AppRoutes() {
   return (
@@ -22,6 +23,7 @@ function AppRoutes() {
             <Route element={<AdminRoute/>}>
               <Route path="/admin/dashboard" element={<AdminDashboard/>}/>
               <Route path="/create/category" element={<AddCategory/>}/>
+              <Route path="/create/product" element={<AddProduct/>}/>
             </Route>
         </Routes>
 
