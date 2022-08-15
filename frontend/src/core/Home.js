@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
 import { getProducts } from "./apiCore";
 import Card from "./Card";
+import AmzHome from "./AmzHome";
+import Categories from "./Categories";
 
 function Home() {
   const [productsBySell, setProductsBySell] = useState([]);
@@ -34,12 +36,14 @@ function Home() {
 
   return (
     <div>
-      <Layout
+    <AmzHome/>
+      {/* <Layout
         title="Home Page"
         description="Node React ecommerce home page app"
       
-      />
-      <div className="container">
+      /> */}
+      <Categories/>
+      <div className="container-fluid">
 
      
       <h2 className="mb-4">Best Sellers</h2>

@@ -9,12 +9,14 @@ import AdminRoute from "./auth/AdminRoute"
 import AdminDashboard from "./User/AdminDashboard"
 import AddCategory from "./admin/AddCategory"
 import AddProduct from "./admin/AddProduct"
+import AmzHome from "./core/AmzHome"
 
 function AppRoutes() {
   return (
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<Home/>}/>
+            <Route path="/amz" element={<AmzHome/>}/>
             <Route path="/signin" element={<Signin/>}/>
             <Route path="/signup"  element={<Signup/>}/>
             <Route element={<PrivateRoute/>}>
