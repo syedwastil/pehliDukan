@@ -24,6 +24,6 @@ router.get("/products",list)
 router.get("/products/related/:productId",listRelated)
 router.get("/products/categories", listCategories)
 router.post("/products/by/search", listBySearch)
-router.post("/product/photo/:productId", productPhoto)
+router.get("/product/photo/:productId", productPhoto)
 
 module.exports=router

@@ -110,7 +110,7 @@ function Signup() {
   );
 
   return (
-    <>
+    <div className="body">
       <div className="row no-gutter">
         <div className="col-4"></div>
           <div className="col-4 login">
@@ -128,7 +128,7 @@ function Signup() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

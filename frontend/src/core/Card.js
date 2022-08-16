@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import ShowPhoto from "./ShowPhoto";
 
 function Card({product}) {
   return (
@@ -9,6 +10,7 @@ function Card({product}) {
                 {product.name}
             </div>
             <div className="card-body">
+                <ShowPhoto item={product} url="product"/>
                 <p>{product.description}</p>
                 <p>${product.price}</p>
                 <Link to='/'>

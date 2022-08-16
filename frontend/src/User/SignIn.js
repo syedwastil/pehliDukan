@@ -102,7 +102,7 @@ function Signin() {
   };
 
   return (
-    <>
+    <div className="body">
       <div className="row">
         <div className="col-4"></div>
         <div className="col-4 login">
@@ -122,7 +122,7 @@ function Signin() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

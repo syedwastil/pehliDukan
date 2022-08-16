@@ -5,6 +5,7 @@ import Card from "./Card";
 import AmzHome from "./AmzHome";
 import Categories from "./Categories";
 
+
 function Home() {
   const [productsBySell, setProductsBySell] = useState([]);
   const [productsByArrival, setProductsByArrival] = useState([]);
@@ -36,12 +37,7 @@ function Home() {
 
   return (
     <div>
-    <AmzHome/>
-      {/* <Layout
-        title="Home Page"
-        description="Node React ecommerce home page app"
-      
-      /> */}
+      <AmzHome/>
       <Categories/>
       <div className="container-fluid">
 
