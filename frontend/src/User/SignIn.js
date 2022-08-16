@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Navigate, Link } from "react-router-dom";
-import Layout from "../core/Layout";
 import { signupin, authenticate, isAuthenticated } from "../auth/index";
 import "../style/Signin.css";
-import Header from "../core/Header"
+
 
 function Signin() {
   const [values, setvalues] = useState({
@@ -65,7 +64,7 @@ function Signin() {
         </button>
       </form>
       <p>
-      By continuing, you agree to Amazon's Clone <a href="https://www.amazon.com/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&nodeId=508088">Conditions of Use</a>  and <a href="https://www.amazon.com/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&nodeId=468496">Privacy Notice</a> .
+      By continuing, you agree to Amazon's Clone <a href="">Conditions of Use</a>  and <a href="">Privacy Notice</a> .
       </p>
       <Link to="/signup" >
       <button className="login__registerButton">Create your Clone Account</button>
@@ -115,7 +114,7 @@ function Signin() {
           </Link>
 
           <div className=" login__container">
-            <h1>Sign In</h1>
+            <h3>Sign In</h3>
             {showLoading()}
             {showError()}
             {redirectUser()}
