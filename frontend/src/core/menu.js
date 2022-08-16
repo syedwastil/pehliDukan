@@ -54,7 +54,6 @@ function Menu({ history }) {
                 style={{ cursor: "pointer", color: "fffff" }}
                 onClick={() =>
                   signout(() => {
-                    // let history=createBrowserHistory()
                     navigate("/");
                   })
                 }

@@ -8,22 +8,40 @@
   .home__image {
     width: 100%;
     z-index: -1;
-    margin-bottom: -150px;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    margin-bottom: -240px;
+  
+    transform: scaleX(1.05 );
+ 
   }
 
 .category {
+  
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-    display: flexbox;
+  text-align: left;
+    margin-left: 12px;
+    margin-top: 10px;
     margin-bottom: -10px;
+    line-height: 1.3em;
    
 
 }
 .category__img{
-  margin-left: -15px;
+  margin-left: -05px;
   padding: 0;
-  width: 115%;
+  width: 105%;
   height: 250px;
   object-fit: cover;
+}
+
+.category__col{
+
+  padding-left: 0px;
+  
+}
+
+.ct {
+  margin-left: 15px;
+  margin-right: 0px;
+  margin-bottom: 15px;
+  
 }
